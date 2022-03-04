@@ -51,7 +51,13 @@ public class PosServiceImp implements PosService {
     }
 
     @Override
-    public void checkout(Cart cart) {
+    public double checkout(Cart cart) {
+        if (cart == null) {
+            return 0;
+        }
+        double total = cart.total();
+        clearCart(cart);
+        return total;
     }
 
     @Override

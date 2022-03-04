@@ -86,8 +86,6 @@ public class PosCommand {
         if (cart == null) {
             return "ERROR: No Cart";
         }
-        double total = posService.total(cart);
-        posService.clearCart(cart);
-        return "You have paid $" + total + ", thanks";
+        return "You have paid $" + posService.checkout(cart) + ", thanks";
     }
 }

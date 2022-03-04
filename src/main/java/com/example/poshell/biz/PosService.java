@@ -14,7 +14,7 @@ public interface PosService {
 
     public void clearCart(Cart cart);
 
-    public void checkout(Cart cart);
+    public double checkout(Cart cart);
 
     public double total(Cart cart);
 
