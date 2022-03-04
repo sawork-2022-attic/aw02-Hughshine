@@ -1,5 +1,13 @@
 # POS in Shell
 
+## Comments
+
+1. at-least-3-layer design is always needed, for user interface / business logic / raw data access
+2. adjacent layers should lose couple with each other
+3. non-adjacent layers should be invisible to each other 
+
+## Instructions
+
 The demo shows a simple POS system with command line interface. 
 
 To run

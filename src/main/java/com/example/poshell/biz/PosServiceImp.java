@@ -30,13 +30,36 @@ public class PosServiceImp implements PosService {
     }
 
     @Override
-    public void checkout(Cart cart) {
-
+    public void clearCart(Cart cart) {
+        if (cart != null) {
+            cart.getItems().clear();
+        }
     }
 
     @Override
-    public void total(Cart cart) {
+    public boolean modifyCart(Cart cart, int itemId, int newAmount) {
+        if (cart != null) {
+            if (itemId > cart.getItems().size() || itemId <= 0) return false;
+            Item item = cart.getItems().get(itemId-1);
+            if (newAmount <= 0) {
+                cart.getItems().remove(itemId-1);
+            } else {
+                item.setAmount(newAmount);
+            }
+        }
+        return true;
+    }
 
+    @Override
+    public void checkout(Cart cart) {
+    }
+
+    @Override
+    public double total(Cart cart) {
+        if (cart == null) {
+            return 0;
+        }
+        return cart.total();
     }
 
     @Override

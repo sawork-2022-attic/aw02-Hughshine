@@ -24,7 +24,7 @@ public class Cart {
         stringBuilder.append("Cart -----------------\n"  );
 
         for (int i = 0; i < items.size(); i++) {
-            stringBuilder.append(items.get(i).toString()).append("\n");
+            stringBuilder.append("" + (i+1) + "\t").append(items.get(i).toString()).append("\n");
             total += items.get(i).getAmount() * items.get(i).getProduct().getPrice();
         }
         stringBuilder.append("----------------------\n"  );
@@ -32,5 +32,13 @@ public class Cart {
         stringBuilder.append("Total...\t\t\t" + total );
 
         return stringBuilder.toString();
+    }
+
+    public double total() {
+        double total = 0;
+        for (int i = 0; i < items.size(); i++) {
+            total += items.get(i).getAmount() * items.get(i).getProduct().getPrice();
+        }
+        return total;
     }
 }
